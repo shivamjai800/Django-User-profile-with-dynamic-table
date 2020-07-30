@@ -48,10 +48,17 @@ editing page.
 merging  page.
 ![alt text](https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/table3.jpg)
 
+spliting horizontal
+![alt text](https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/split_horizontal.jpg)
+
+splitting vertical
+![alt text](https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/split_vertical.jpg)
+
 save page
+![alt text](https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/save.jpg)
 
 logout page
-
+![alt text](https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/logout.jpg)
 
 
 
