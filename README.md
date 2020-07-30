@@ -25,27 +25,28 @@ Your table will save only when you click on the save button . Else you will see 
 For Merging you have to select the cells. The selected cell will appear in orange colour . Then click on the merge button.
 
 Welcome page of the app
-![alt text]https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/start-page.jpg)
+
+![alt text](https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/start-page.jpg)
 
 
 start page of the profile
-![alt text]https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/second_page.jpg)
+![alt text](https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/second_page.jpg)
 
 register page.
 
-![alt text]https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/register_now.jpg)
+![alt text](https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/register_now.jpg)
 
 login page.
-![alt text]https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/login.jpg)
+![alt text](https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/login.jpg)
 
 timetable page.
-![alt text]https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/table1.jpg)
+![alt text](https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/table1.jpg)
 
 editing page.
-![alt text]https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/table2.jpg)
+![alt text](https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/table2.jpg)
 
 merging  page.
-![alt text]https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/table3.jpg)
+![alt text](https://github.com/shivamjai800/Django-User-profile-with-dynamic-table/blob/master/table3.jpg)
 
 save page
 
