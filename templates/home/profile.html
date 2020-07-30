@@ -1,0 +1,153 @@
+{% extends 'basic.html'%}
+{% load crispy_forms_tags%}
+{% block title %}My profile page
+{% endblock title %}
+{% block css %}
+{% comment %} <script   src="https://code.jquery.com/jquery-3.2.1.slim.js"></script> {% endcomment %}
+{% load static %}
+<link rel="stylesheet" href="{% static './home/css/style.css'%}" type="text/css" media="screen">
+<script type="text/javascript" src="{%static 'home/js/ajax.min.js'%}"></script>
+<script type="text/javascript" src="{%static 'home/js/shivam-table-min.js'%}"></script>
+<script type="text/javascript" src="{%static 'home/js/script.js'%}"></script>
+{% endblock css %}
+{% block body %}
+<h2> Welcome to your profile : {{user.username}} </h2>
+<!-- container -->
+<div id="myContainer">
+   <!-- toolbox -->
+   <table id="toolbox">
+      <tbody>
+         <tr>
+            <td>
+               <input type="button" value="Merge" class="btn btn-primary" onclick="shivam.merge()" title="Merge marked table cells horizontally and verically">
+            </td>
+            <td>
+               <input type="button" value="Split H" class="btn btn-primary" onclick="shivam.split(&#39;h&#39;)" title="Split marked table cell horizontally">
+               <input type="button" value="Split V" class="btn btn-primary" onclick="shivam.split(&#39;v&#39;)" title="Split marked table cell vertically">
+            </td>
+            <td>
+               <input type="button" value="Row +" class="btn btn-primary" onclick="shivam.row(&#39;insert&#39;)" title="Add table row">
+               <input type="button" value="Row -" class="btn btn-primary" onclick="shivam.row(&#39;delete&#39;)" title="Delete table row">
+            </td>
+            <td>
+               <input type="button" value="Col +" class="btn btn-primary" onclick="shivam.column(&#39;insert&#39;)" title="Add table column">
+               <input type="button" value="Col -" class="btn btn-primary" onclick="shivam.column(&#39;delete&#39;)" title="Delete table column">
+            </td>
+            <td>
+               <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" onclick="editor()"; id="customSwitch1"  >
+                  <label class="custom-control-label" for="customSwitch1">Editing of cells</label>
+               </div>
+            </td>
+            <td>
+               <input type="button" value="save " onclick="save_the_data()" class="btn btn-primary"  title="Delete table column">
+            </td>
+         </tr>
+      </tbody>
+   </table>
+
+   <table id="mainTable">
+      <tbody>
+         <tr>
+            <td>0</td>
+            {% for j in list.0%}
+               {% if j is not list.0.0 %}
+               <td rowspan={{j.1}} colspan={{j.2}}>{{j.3}}
+               </td>
+               {%endif%}
+            {%endfor %}
+         </tr>
+         {% for i in list%}
+         {% if i is not list.0%}
+         <tr>
+            
+            {% for j in i%}
+               <td rowspan={{j.1}} colspan={{j.2}}>{{j.3}}
+               </td>
+            {%endfor %} 
+         </tr>
+         
+         
+         {%endif%}
+         {%endfor %}
+      </tbody>
+   </table>
+</div>
+{% csrf_token %}    
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+{% endblock body %}
+{% block script %}
+var call;
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+const csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+var list_of_cells = [];
+
+function save_the_data() {
+    var table_data = document.getElementById('mainTable').getElementsByTagName('tr');
+    var l = table_data.length;
+    for (var i = 0; i < l; i++) {
+        var rowwise = [];
+        var x = table_data[i].getElementsByTagName('td');
+        for (const [key, value] of Object.entries(x)) {
+            var temp = [];
+            temp.push(i + 1);
+            temp.push(parseInt(key) + 1);
+            if (value.getAttribute("rowspan") == null) {
+                temp.push(1);
+            } else {
+                temp.push(parseInt(value.getAttribute("rowspan")));
+            }
+            if (value.getAttribute("colspan") == null) {
+                temp.push(1);
+            } else {
+                temp.push(parseInt(value.getAttribute("colspan")));
+            }
+            temp.push(value.innerHTML);
+            rowwise.push(temp);
+        }
+        list_of_cells.push(rowwise);
+    }
+    console.log(list_of_cells);
+    ajax_now();
+    
+    
+    list_of_cells = [];
+}
+function ajax_now(){
+   $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+    call = $.ajax({
+        type: "POST",
+        url: "{% url 'profile_url'%}",
+        data: {
+            'mydata': list_of_cells
+        },
+        success: function(response){
+           call.abort();
+           alert("saved");
+           
+           if(response === "no_errors") 
+           {
+              
+               location.href = "{% url 'profile_url'%}";
+               
+           }
+
+        }
+        
+    });
+    
+}
+{% endblock script %}

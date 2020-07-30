@@ -1,0 +1,64 @@
+{% extends 'basic.html'%}
+{% load crispy_forms_tags%}
+{% block title %}My register page
+{% endblock title %}
+
+{% block style %}
+.new{
+    
+    width: 30vw;
+    margin: auto;
+    margin-top: 5vh;
+    font-family: sans-serif;
+    box-shadow: 0px 0px 9px 0px black;
+    padding: 2vw;
+    background-color: #ebdfdf;
+    text-shadow: 0px 0px black;
+}
+.form-group label{
+    font-size: 2.5vh;
+    display: inline-block;
+    margin-top: 0.25vh;
+    margin-bottom: 0.25vh;
+    font-family: sans-serif;
+}
+.form-group input{
+   display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s
+}
+
+
+{% endblock style %}
+
+{% block body %}
+    <div class="content-section new">
+        <form method="POST" >{% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4" style="text-align:center">Login
+                </legend>
+                    {{ form.as_table}}
+            </fieldset >
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">SignIn</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">Need an account?<a href="{%url 'register_url'%}" class="ml-2">SignUp</a></small>
+        </div>
+    </div>
+{% endblock body %}
+
+{% block script %}
+
+{% endblock script %}

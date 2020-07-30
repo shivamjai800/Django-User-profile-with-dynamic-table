@@ -1,0 +1,40 @@
+{% extends 'basic.html'%}
+{% load crispy_forms_tags%}
+{% block title %}My register page
+{% endblock title %}
+
+{% block style %}
+.new{
+    
+    width: 30vw;
+    margin: auto;
+    margin-top: 5vh;
+    font-family: sans-serif;
+    box-shadow: 0px 0px 9px 0px black;
+    padding: 2vw;
+    background-color: #ebdfdf;
+    text-shadow: 0px 0px black;
+}
+.form-group label{
+    font-size: 2.5vh;
+    display: inline-block;
+    margin-top: 0.25vh;
+    margin-bottom: 0.25vh;
+    font-family: sans-serif;
+}
+
+
+{% endblock style %}
+
+{% block body %}
+    <h1> congrates</h1>
+    <a  href="{% url 'profile_url'%}"><button class="btn btn-primary">Click here go back</button></a>
+{% endblock body %}
+
+{% block script %}
+$(document).ready(function(){
+    var xhr = $.get('/server');
+    setTimeout(function(){xhr.abort();}, 1000);
+});
+
+{% endblock script %}

@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+      <meta name="author" content="Darko Bunic">
+      <meta name="description" content="Merge and split table cells with JavaScript">
+      <meta name="viewport" content="width=device-width, user-scalable=no">
+      <!-- "position: fixed" fix for Android 2.2+ -->
+      <link rel="stylesheet" href="./Example 0_ Table demo_files/style.css" type="text/css" media="screen">
+      <!-- bootstrap plugin -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+      <!-- Normal plugin -->
+      <script type="text/javascript" src="./Example 0_ Table demo_files/shivam-table-min.js"></script>
+      <script type="text/javascript" src="./Example 0_ Table demo_files/script.js"></script>
+   </head>
+   <body data-gr-c-s-loaded="true">
+      <!-- container -->
+      <div id="myContainer">
+         <!-- toolbox -->
+         <table id="toolbox">
+            <tbody>
+               <tr>
+                  <td>
+                     <input type="button" value="Merge" class="btn btn-primary" onclick="shivam.merge()" title="Merge marked table cells horizontally and verically">
+                  </td>
+                  <td>
+                     <input type="button" value="Split H" class="btn btn-primary" onclick="shivam.split(&#39;h&#39;)" title="Split marked table cell horizontally">
+                     <input type="button" value="Split V" class="btn btn-primary" onclick="shivam.split(&#39;v&#39;)" title="Split marked table cell vertically">
+                  </td>
+                  <td>
+                     <input type="button" value="Row +" class="btn btn-primary" onclick="shivam.row(&#39;insert&#39;)" title="Add table row">
+                     <input type="button" value="Row -" class="btn btn-primary" onclick="shivam.row(&#39;delete&#39;)" title="Delete table row">
+                  </td>
+                  <td>
+                     <input type="button" value="Col +" class="btn btn-primary" onclick="shivam.column(&#39;insert&#39;)" title="Add table column">
+                     <input type="button" value="Col -" class="btn btn-primary" onclick="shivam.column(&#39;delete&#39;)" title="Delete table column">
+                  </td>
+                  <td>
+                     <div class="custom-control custom-switch">
+                       <input type="checkbox" class="custom-control-input" onclick="editor()"; id="customSwitch1"  >
+                       <label class="custom-control-label" for="customSwitch1">Editing of cells</label>
+                     </div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <!-- main table -->
+         <table id="mainTable">
+            <tbody>
+               <tr>
+                  <th>0-0</th>
+               </tr>
+               
+            </tbody>
+         </table>
+      </div>
+
+
+
+      <!-- Bootstrap links -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+   </body>
+</html>
